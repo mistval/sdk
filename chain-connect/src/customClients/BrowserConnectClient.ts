@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 import { BrowserProvider, Eip1193Provider, getAddress } from "ethers";
-import { serialize } from "v8";
+import { serialize } from '@gala-chain/api';
 
 import { GalaChainProviderOptions, WebSigner } from "../GalaChainClient";
 import { ExtendedEip1193Provider } from "../helpers";
