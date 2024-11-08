@@ -180,20 +180,4 @@ describe("ChainCallDTO", () => {
     // Then
     expect(dto.isSignatureValid(publicKey)).toEqual(false);
   });
-
-  it("should sign and verify TON signature", async () => {
-    // Given
-    const pair = await signatures.ton.genKeyPair();
-    const dto = new TestDto();
-    dto.amounts = [new BigNumber("78.9")];
-    dto.signing = SigningScheme.TON;
-    expect(dto.signature).toEqual(undefined);
-
-    // When
-    dto.sign(pair.secretKey.toString("base64"));
-
-    // Then
-    expect(dto.signature).toEqual(expect.stringMatching(/.{50,}/));
-    expect(dto.isSignatureValid(pair.publicKey.toString("base64"))).toEqual(true);
-  });
 });

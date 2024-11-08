@@ -78,14 +78,6 @@ function validateUserAlias(value: unknown): UserRefValidationResult {
         return UserRefValidationResult.INVALID_ETH_USER_ALIAS;
       }
     }
-
-    if (parts[0] === "ton") {
-      if (signatures.ton.isValidTonAddress(parts[1])) {
-        return UserRefValidationResult.VALID_USER_ALIAS;
-      } else {
-        return UserRefValidationResult.INVALID_TON_USER_ALIAS;
-      }
-    }
   }
 
   return UserRefValidationResult.INVALID_FORMAT;

@@ -234,15 +234,10 @@ export class ChainCallDTO {
   }
 
   public sign(privateKey: string, useDer = false): void {
-    if (this.signing === SigningScheme.TON) {
-      const keyBuffer = Buffer.from(privateKey, "base64");
-      this.signature = signatures.ton.getSignature(this, keyBuffer, this.prefix).toString("base64");
-    } else {
       const keyBuffer = signatures.normalizePrivateKey(privateKey);
       this.signature = useDer
         ? signatures.getDERSignature(this, keyBuffer)
         : signatures.getSignature(this, keyBuffer);
-    }
   }
 
   /**
@@ -256,13 +251,7 @@ export class ChainCallDTO {
   }
 
   public isSignatureValid(publicKey: string): boolean {
-    if (this.signing === SigningScheme.TON) {
-      const signatureBuff = Buffer.from(this.signature ?? "", "base64");
-      const publicKeyBuff = Buffer.from(publicKey, "base64");
-      return signatures.ton.isValidSignature(signatureBuff, this, publicKeyBuff, this.prefix);
-    } else {
-      return signatures.isValid(this.signature ?? "", this, publicKey);
-    }
+    return signatures.isValid(this.signature ?? "", this, publicKey);
   }
 }
 
