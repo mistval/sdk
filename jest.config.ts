@@ -12,8 +12,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { getJestProjects } from "@nx/jest";
 
+/* eslint-disable */
 export default {
-  projects: getJestProjects()
+  displayName: 'chain-api',
+  preset: '../jest.preset.js',
+  testEnvironment: 'node',
+  transform: {
+    '^.+\\.[tj]s$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.spec.json' }]
+  },
+  moduleFileExtensions: ['ts', 'js', 'html'],
+  coverageDirectory: '../coverage/chain-api'
 };
