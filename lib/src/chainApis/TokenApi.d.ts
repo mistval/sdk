@@ -1,0 +1,34 @@
+import { FulfillMintDto } from "@gala-chain/api";
+import { GalaChainProvider } from "../GalaChainClient";
+import { BatchMintTokenRequest, BurnTokensRequest, CreateTokenClassRequest, DeleteAllowancesRequest, FetchAllowancesRequest, FetchAllowancesResponse, FetchBalancesRequest, FetchBalancesWithPaginationRequest, FetchBalancesWithTokenMetadataResponse, FetchBurnsRequest, FetchMintRequestsRequest, FetchTokenClassesRequest, FetchTokenClassesResponse, FetchTokenClassesWithPaginationRequest, FulfillMintRequest, FullAllowanceCheckRequest, FullAllowanceCheckResponse, GrantAllowanceRequest, HighThroughputMintTokenRequest, LockTokenRequest, LockTokensRequest, MintRequest, MintTokenRequest, MintTokenWithAllowanceRequest, RefreshAllowanceRequest, ReleaseTokenRequest, TokenAllowance, TokenBalance, TokenBurn, TokenClass, TokenClassKey, TokenInstanceKey, TransferTokenRequest, UnlockTokenRequest, UnlockTokensRequest, UpdateTokenClassRequest, UseTokenRequest } from "../types";
+import { GalaChainBaseApi } from "./GalaChainBaseApi";
+export declare class TokenApi extends GalaChainBaseApi {
+    constructor(chainCodeUrl: string, connection: GalaChainProvider);
+    CreateTokenClass(dto: CreateTokenClassRequest): Promise<import("../types").GalaChainResponseSuccess<TokenClass>>;
+    UpdateTokenClass(dto: UpdateTokenClassRequest): Promise<import("../types").GalaChainResponseSuccess<TokenClassKey>>;
+    FetchTokenClasses(dto: FetchTokenClassesRequest): Promise<import("../types").GalaChainResponseSuccess<TokenClass[]>>;
+    FetchTokenClassesWithSupply(dto: FetchTokenClassesRequest): Promise<import("../types").GalaChainResponseSuccess<TokenClass[]>>;
+    FetchTokenClassesWithPagination(dto: FetchTokenClassesWithPaginationRequest): Promise<import("../types").GalaChainResponseSuccess<FetchTokenClassesResponse>>;
+    GrantAllowance(dto: GrantAllowanceRequest): Promise<import("../types").GalaChainResponseSuccess<TokenAllowance[]>>;
+    RefreshAllowances(dto: RefreshAllowanceRequest): Promise<import("../types").GalaChainResponseSuccess<TokenAllowance[]>>;
+    FullAllowanceCheck(dto: FullAllowanceCheckRequest): Promise<import("../types").GalaChainResponseSuccess<FullAllowanceCheckResponse>>;
+    FetchAllowances(dto: FetchAllowancesRequest): Promise<import("../types").GalaChainResponseSuccess<FetchAllowancesResponse>>;
+    DeleteAllowances(dto: DeleteAllowancesRequest): Promise<import("../types").GalaChainResponseSuccess<unknown>>;
+    FetchBalances(dto: FetchBalancesRequest): Promise<import("../types").GalaChainResponseSuccess<TokenBalance[]>>;
+    FetchBalancesWithTokenMetadata(dto: FetchBalancesWithPaginationRequest): Promise<import("../types").GalaChainResponseSuccess<FetchBalancesWithTokenMetadataResponse>>;
+    RequestMint(dto: HighThroughputMintTokenRequest): Promise<import("../types").GalaChainResponseSuccess<FulfillMintDto>>;
+    FulfillMint(dto: FulfillMintRequest): Promise<import("../types").GalaChainResponseSuccess<TokenInstanceKey[]>>;
+    FetchMintRequests(dto: FetchMintRequestsRequest): Promise<import("../types").GalaChainResponseSuccess<MintRequest[]>>;
+    MintToken(dto: MintTokenRequest): Promise<import("../types").GalaChainResponseSuccess<TokenInstanceKey[]>>;
+    MintTokenWithAllowance(dto: MintTokenWithAllowanceRequest): Promise<import("../types").GalaChainResponseSuccess<TokenInstanceKey[]>>;
+    BatchMintToken(dto: BatchMintTokenRequest): Promise<import("../types").GalaChainResponseSuccess<TokenInstanceKey[]>>;
+    UseToken(dto: UseTokenRequest): Promise<import("../types").GalaChainResponseSuccess<TokenBalance>>;
+    ReleaseToken(dto: ReleaseTokenRequest): Promise<import("../types").GalaChainResponseSuccess<TokenBalance>>;
+    LockToken(dto: LockTokenRequest): Promise<import("../types").GalaChainResponseSuccess<TokenBalance>>;
+    LockTokens(dto: LockTokensRequest): Promise<import("../types").GalaChainResponseSuccess<TokenBalance[]>>;
+    UnlockToken(dto: UnlockTokenRequest): Promise<import("../types").GalaChainResponseSuccess<TokenBalance>>;
+    UnlockTokens(dto: UnlockTokensRequest): Promise<import("../types").GalaChainResponseSuccess<TokenBalance[]>>;
+    TransferToken(dto: TransferTokenRequest): Promise<import("../types").GalaChainResponseSuccess<TokenBalance[]>>;
+    BurnTokens(dto: BurnTokensRequest): Promise<import("../types").GalaChainResponseSuccess<TokenBurn[]>>;
+    FetchBurns(dto: FetchBurnsRequest): Promise<import("../types").GalaChainResponseSuccess<TokenBurn[]>>;
+}

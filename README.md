@@ -1,41 +1,71 @@
-# GalaChain SDK
+# GalaChain Connect
 
-Welcome to developing with GalaChain!
-GalaChain SDK is a set of TS tools to help you develop on GalaChain:
+GalaChain Connect is a library that provides developers with capabilities comparable to [ethers.js](https://docs.ethers.io/), allowing users to connect to and interact with GalaChain using wallets such as MetaMask.
 
-- Utility libraries and chaincode framework to allow seamless development of chaincodes
-- Local development environment with hot code reload and local block browser
-- Easy start with chaincode template
-- Integration with GalaChain
+## Table of Contents
 
-## Contributing
+- [Features](#features)
+- [Installation](#installation)
+- [Building](#building)
+- [Running Unit Tests](#running-unit-tests)
+- [Examples](#examples)
+- [Local Library Testing](#local-library-testing)
 
-We welcome contributions to GalaChain SDK!
-Feel free to open issues and pull requests.
-Please see our [contribution guide](CONTRIBUTION_GUIDE.md) for more information, or look for the [`good first issue`](https://github.com/GalaChain/sdk/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) label on GitHub.
+## Features
 
-## Getting started
+- **Client-Side Signing and Calls**: Enables applications to interact with GalaChain using client-side signing via web3 wallets like MetaMask and Trust Wallet.
+- **Server-Side Signing and Calls**: Supports server-side interactions with GalaChain using private keys for automated processes or backend services.
+- **Unified API Interface**: Provides a consistent API for both client-side and server-side interactions with GalaChain.
 
-To get started with GalaChain SDK, please see our [Getting started guide](docs/getting-started.md) or follow the [From zero to deployment](docs/from-zero-to-deployment.md) tutorial.
+## Installation
 
-## Working with GalaChain
+To install Gala Connect, run:
 
-- [Chaincode development](docs/chaincode-development.md)
-- [Chaincode testing](docs/chaincode-testing.md)
-- [Chaincode deployment](docs/chaincode-deployment.md)
-- [Authorization](docs/authorization.md)
-- [Chaincode client](docs/chaincode-client.md)
+```bash
+npm install @gala-chain/connect
+```
 
-### Reference documentation
+## Building
 
-- [`chain-api`](docs/chain-api-docs/exports.md) - Common types, DTOs (Data Transfer Objects), APIs, signatures, and utils for GalaChain
-- [`chain-client`](docs/chain-client-docs/exports.md) - GalaChain client library
-- [`chain-test`](docs/chain-test-docs/exports.md) - Unit testing and integration testing for GalaChain
-- [`chain-cli`](chain-cli/README.md) - Command line interface for chaincode development
-- [`chaincode`](docs/chaincode-docs/exports.md) - Framework for building chaincodes on GalaChain
+Run the following command to build the library:
 
-## About GalaChain
+```bash
+nx build chain-connect
+```
 
-GalaChain is a layer 1 blockchain designed to be the foundation of Web3 Gaming, Entertainment and more.
-It is based on Hyperledger Fabric ® and developed by [Gala Games](https://gala.com).
-Read more about [GalaChain](docs/galachain.md).
+## Running Unit Tests
+
+To execute the unit tests via [Jest](https://jestjs.io), run:
+
+```bash
+nx test chain-connect
+```
+
+## Examples
+
+The [Examples Documentation](docs/Examples.md) provides detailed examples on how to use GalaChain Connect, including:
+
+- Connecting to a Web3 wallet and interacting with GalaChain on the client side.
+- Performing server-side signing and interactions using a private key.
+
+## Local Library Testing
+
+To test the library locally in another project:
+
+1. Build the library:
+
+    ```bash
+    nx build chain-connect
+    ```
+
+2. Link the library:
+
+    ```bash
+    npm link
+    ```
+
+3. In your project where you want to test the library, link it:
+
+    ```bash
+    npm link @gala-chain/connect
+    ```
