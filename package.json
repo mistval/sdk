@@ -20,7 +20,8 @@
   "main": "./lib/src/index.js",
   "typings": "./lib/src/index.d.ts",
   "files": [
-    "lib"
+    "lib",
+    "src"
   ],
   "scripts": {
     "clean": "tsc -b --clean",
